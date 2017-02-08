@@ -15,6 +15,9 @@
 		6D5397821E4B14A400D41B51 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6D5397811E4B14A400D41B51 /* Assets.xcassets */; };
 		6D5397851E4B14A400D41B51 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 6D5397831E4B14A400D41B51 /* LaunchScreen.storyboard */; };
 		6D5397901E4B14A400D41B51 /* SNSShareTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53978F1E4B14A400D41B51 /* SNSShareTests.m */; };
+		6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53979B1E4B16E200D41B51 /* ImageCell.m */; };
+		6D53979E1E4B16E200D41B51 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53979C1E4B16E200D41B51 /* ImageCell.xib */; };
+		6D5397A11E4B1CA800D41B51 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5397A01E4B1CA800D41B51 /* DetailViewController.m */; };
 		B20D2A8DC180731FD857DA75 /* Pods_SNSShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5651BD13086E12CDB3030E22 /* Pods_SNSShareTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -47,6 +50,11 @@
 		6D53978B1E4B14A400D41B51 /* SNSShareTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SNSShareTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D53978F1E4B14A400D41B51 /* SNSShareTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SNSShareTests.m; sourceTree = "<group>"; };
 		6D5397911E4B14A400D41B51 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6D53979A1E4B16E200D41B51 /* ImageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageCell.h; sourceTree = "<group>"; };
+		6D53979B1E4B16E200D41B51 /* ImageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageCell.m; sourceTree = "<group>"; };
+		6D53979C1E4B16E200D41B51 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
+		6D53979F1E4B1CA800D41B51 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		6D5397A01E4B1CA800D41B51 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
 		FA6CBD58843F5F909FBED1FB /* Pods-SNSShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNSShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNSShare/Pods-SNSShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -122,6 +130,11 @@
 				6D5397831E4B14A400D41B51 /* LaunchScreen.storyboard */,
 				6D5397861E4B14A400D41B51 /* Info.plist */,
 				6D5397751E4B14A400D41B51 /* Supporting Files */,
+				6D53979A1E4B16E200D41B51 /* ImageCell.h */,
+				6D53979B1E4B16E200D41B51 /* ImageCell.m */,
+				6D53979C1E4B16E200D41B51 /* ImageCell.xib */,
+				6D53979F1E4B1CA800D41B51 /* DetailViewController.h */,
+				6D5397A01E4B1CA800D41B51 /* DetailViewController.m */,
 			);
 			path = SNSShare;
 			sourceTree = "<group>";
@@ -198,6 +211,7 @@
 				TargetAttributes = {
 					6D5397711E4B14A400D41B51 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = A87J69XM38;
 						ProvisioningStyle = Automatic;
 					};
 					6D53978A1E4B14A400D41B51 = {
@@ -232,6 +246,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5397851E4B14A400D41B51 /* LaunchScreen.storyboard in Resources */,
+				6D53979E1E4B16E200D41B51 /* ImageCell.xib in Resources */,
 				6D5397821E4B14A400D41B51 /* Assets.xcassets in Resources */,
 				6D5397801E4B14A400D41B51 /* Main.storyboard in Resources */,
 			);
@@ -344,7 +359,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6D5397A11E4B1CA800D41B51 /* DetailViewController.m in Sources */,
 				6D53977D1E4B14A400D41B51 /* ViewController.m in Sources */,
+				6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */,
 				6D53977A1E4B14A400D41B51 /* AppDelegate.m in Sources */,
 				6D5397771E4B14A400D41B51 /* main.m in Sources */,
 			);
@@ -481,7 +498,9 @@
 			baseConfigurationReference = 44479871267578096A950E1B /* Pods-SNSShare.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A87J69XM38;
 				INFOPLIST_FILE = SNSShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smict.SNSShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -493,7 +512,9 @@
 			baseConfigurationReference = FA6CBD58843F5F909FBED1FB /* Pods-SNSShare.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = A87J69XM38;
 				INFOPLIST_FILE = SNSShare/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.smict.SNSShare;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -545,6 +566,7 @@
 				6D5397961E4B14A400D41B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6D5397971E4B14A400D41B51 /* Build configuration list for PBXNativeTarget "SNSShareTests" */ = {
 			isa = XCConfigurationList;
@@ -553,6 +575,7 @@
 				6D5397991E4B14A400D41B51 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
