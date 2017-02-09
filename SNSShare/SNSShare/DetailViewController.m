@@ -45,7 +45,7 @@
 - (IBAction)touchedShareButton:(UIButton *)sender
 {
     
-    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]init];
+    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]initWithImage:self.image];
     TwitterActivity *activityTwitter = [[TwitterActivity alloc]init];
     GoogleActivity *activityGoogle = [[GoogleActivity alloc]init];
     

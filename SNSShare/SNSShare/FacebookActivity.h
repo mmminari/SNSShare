@@ -10,5 +10,7 @@
 
 @interface FacebookActivity : UIActivity
 
+- (instancetype)initWithImage:(UIImage *)image;
+
 
 @end

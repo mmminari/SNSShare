@@ -7,8 +7,26 @@
 //
 
 #import "FacebookActivity.h"
+#import "SNSClass.h"
+
+@interface FacebookActivity ()
+
+@property (strong, nonatomic) UIImage *image;
+
+@end
 
 @implementation FacebookActivity
+
+- (instancetype)initWithImage:(UIImage *)image
+{
+    if(self = [super init])
+    {
+        self.image = image;
+    }
+    
+    return self;
+    
+}
 
 + (UIActivityCategory)activityCategor
 {
@@ -44,6 +62,20 @@
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
     NSLog(@"facebook share");
+    
+    SNSClass *sns = [[SNSClass alloc]init];
+    
+    if([sns checkFacebookToken])
+    {
+        [sns shareFacebookWithImage:self.image];
+    }
+    else
+    {
+        [sns doFacebookLoginSelf:self.activityViewController WithCompletion:^{
+            
+            [sns shareFacebookWithImage:self.image];
+        }];
+    }
 }
 
 @end

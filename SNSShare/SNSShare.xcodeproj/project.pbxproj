@@ -24,6 +24,7 @@
 		6DB922EF1E4C5A14003F9481 /* facebook_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922EC1E4C5A14003F9481 /* facebook_icon.png */; };
 		6DB922F01E4C5A14003F9481 /* google_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922ED1E4C5A14003F9481 /* google_icon.png */; };
 		6DB922F11E4C5A14003F9481 /* twitter_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922EE1E4C5A14003F9481 /* twitter_icon.png */; };
+		6DB922F41E4C5DEF003F9481 /* SNSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922F31E4C5DEF003F9481 /* SNSClass.m */; };
 		B20D2A8DC180731FD857DA75 /* Pods_SNSShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5651BD13086E12CDB3030E22 /* Pods_SNSShareTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -70,6 +71,8 @@
 		6DB922EC1E4C5A14003F9481 /* facebook_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_icon.png; sourceTree = "<group>"; };
 		6DB922ED1E4C5A14003F9481 /* google_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_icon.png; sourceTree = "<group>"; };
 		6DB922EE1E4C5A14003F9481 /* twitter_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_icon.png; sourceTree = "<group>"; };
+		6DB922F21E4C5DEF003F9481 /* SNSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSClass.h; sourceTree = "<group>"; };
+		6DB922F31E4C5DEF003F9481 /* SNSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSClass.m; sourceTree = "<group>"; };
 		FA6CBD58843F5F909FBED1FB /* Pods-SNSShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNSShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNSShare/Pods-SNSShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -156,6 +159,8 @@
 				6DB922E71E4C58A9003F9481 /* TwitterActivity.m */,
 				6DB922E91E4C58BC003F9481 /* GoogleActivity.h */,
 				6DB922EA1E4C58BC003F9481 /* GoogleActivity.m */,
+				6DB922F21E4C5DEF003F9481 /* SNSClass.h */,
+				6DB922F31E4C5DEF003F9481 /* SNSClass.m */,
 			);
 			path = SNSShare;
 			sourceTree = "<group>";
@@ -392,6 +397,7 @@
 				6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */,
 				6D53977A1E4B14A400D41B51 /* AppDelegate.m in Sources */,
 				6DB922EB1E4C58BC003F9481 /* GoogleActivity.m in Sources */,
+				6DB922F41E4C5DEF003F9481 /* SNSClass.m in Sources */,
 				6DB922E81E4C58A9003F9481 /* TwitterActivity.m in Sources */,
 				6D5397771E4B14A400D41B51 /* main.m in Sources */,
 			);
