@@ -23,7 +23,7 @@
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ojl-Ns-2S9">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.85098039219999999" green="0.84705882349999995" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.92156862745098034" green="0.92156862745098034" blue="0.94509803921568625" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="2kV-lu-Rz3">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -76,18 +76,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YIg-Rl-LAb">
-                                <rect key="frame" x="37.5" y="94" width="300" height="300"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YIg-Rl-LAb">
+                                <rect key="frame" x="37.5" y="114" width="300" height="300"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="300" id="SWr-vh-YAE"/>
                                     <constraint firstAttribute="height" constant="300" id="soF-eG-aik"/>
                                 </constraints>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QlT-bP-mEC">
+                                <rect key="frame" x="37.5" y="69" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.85098039219999999" green="0.84705882349999995" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="BACK">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedBackButton:" destination="WdS-Hq-SfY" eventType="touchUpInside" id="Y3B-0J-jiS"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gMT-rf-9kV">
+                                <rect key="frame" x="257" y="419" width="80" height="40"/>
+                                <color key="backgroundColor" red="0.96688126929012341" green="0.84705882349999995" blue="0.98823529409999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="57H-0H-C2h"/>
+                                    <constraint firstAttribute="width" constant="80" id="gz3-Ro-dzj"/>
+                                </constraints>
+                                <state key="normal" title="SHARE">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedShareButton:" destination="WdS-Hq-SfY" eventType="touchUpInside" id="h2L-5n-QnF"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="YIg-Rl-LAb" firstAttribute="centerX" secondItem="iot-VO-Qvr" secondAttribute="centerX" id="GJe-Ea-4pX"/>
-                            <constraint firstItem="YIg-Rl-LAb" firstAttribute="top" secondItem="v8t-Vk-svr" secondAttribute="bottom" constant="30" id="r0b-5X-xaz"/>
+                            <constraint firstItem="QlT-bP-mEC" firstAttribute="leading" secondItem="YIg-Rl-LAb" secondAttribute="leading" id="O9B-BO-U6x"/>
+                            <constraint firstItem="QlT-bP-mEC" firstAttribute="top" secondItem="v8t-Vk-svr" secondAttribute="bottom" constant="5" id="Wtw-le-3ba"/>
+                            <constraint firstItem="QlT-bP-mEC" firstAttribute="height" secondItem="gMT-rf-9kV" secondAttribute="height" id="ZOm-b2-4MR"/>
+                            <constraint firstItem="gMT-rf-9kV" firstAttribute="trailing" secondItem="YIg-Rl-LAb" secondAttribute="trailing" id="eGO-D9-sRk"/>
+                            <constraint firstItem="gMT-rf-9kV" firstAttribute="top" secondItem="YIg-Rl-LAb" secondAttribute="bottom" constant="5" id="gmM-4S-OxI"/>
+                            <constraint firstItem="YIg-Rl-LAb" firstAttribute="top" secondItem="v8t-Vk-svr" secondAttribute="bottom" constant="50" id="r0b-5X-xaz"/>
+                            <constraint firstItem="QlT-bP-mEC" firstAttribute="width" secondItem="gMT-rf-9kV" secondAttribute="width" id="sPh-S6-o0Z"/>
                         </constraints>
                     </view>
                     <connections>
@@ -103,7 +134,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DqG-yb-e5p" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="Q4S-rV-hia">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="Q4S-rV-hia">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>

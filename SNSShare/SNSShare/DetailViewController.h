@@ -11,5 +11,5 @@
 @interface DetailViewController : UIViewController
 
 @property (weak, nonatomic) IBOutlet UIImageView *ivDetail;
-
+@property (strong, nonatomic) UIImage *image;
 @end

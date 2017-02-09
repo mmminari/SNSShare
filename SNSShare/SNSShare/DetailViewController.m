@@ -7,8 +7,11 @@
 //
 
 #import "DetailViewController.h"
+#import "FacebookActivity.h"
+#import "TwitterActivity.h"
+#import "GoogleActivity.h"
 
-@interface DetailViewController ()
+@interface DetailViewController () <UIAlertViewDelegate>
 
 
 
@@ -16,24 +19,58 @@
 
 @implementation DetailViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNotification:) name:@"ImageSetting" object:nil];
+
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+    NSLog(@"image : %@", self.image);
+    
+    self.ivDetail.image = self.image;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+#pragma mark - User Action
+- (IBAction)touchedBackButton:(UIButton *)sender
+{
+    [self.navigationController popViewControllerAnimated:YES];
 }
-*/
+
+- (IBAction)touchedShareButton:(UIButton *)sender
+{
+    
+    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]init];
+    TwitterActivity *activityTwitter = [[TwitterActivity alloc]init];
+    GoogleActivity *activityGoogle = [[GoogleActivity alloc]init];
+    
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[activtyFacebook, activityTwitter, activityGoogle] applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
+    
+    [self.navigationController presentViewController:activityVC animated:YES completion:nil];
+
+}
+
+
+#pragma mark - NSNotification
+- (void)didReceiveNotification:(NSNotification *)noti
+{
+    NSLog(@"noti : %@", noti);
+    
+    NSDictionary *userInfo = noti.userInfo;
+    
+    self.image = [userInfo objectForKey:@"userInfo"];
+    
+    self.ivDetail.image = self.image;
+    
+    [self.view layoutIfNeeded];
+
+}
+
 
 @end

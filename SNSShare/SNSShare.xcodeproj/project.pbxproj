@@ -18,6 +18,12 @@
 		6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53979B1E4B16E200D41B51 /* ImageCell.m */; };
 		6D53979E1E4B16E200D41B51 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53979C1E4B16E200D41B51 /* ImageCell.xib */; };
 		6D5397A11E4B1CA800D41B51 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5397A01E4B1CA800D41B51 /* DetailViewController.m */; };
+		6DB922E31E4C34C2003F9481 /* FacebookActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922E21E4C34C2003F9481 /* FacebookActivity.m */; };
+		6DB922E81E4C58A9003F9481 /* TwitterActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922E71E4C58A9003F9481 /* TwitterActivity.m */; };
+		6DB922EB1E4C58BC003F9481 /* GoogleActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922EA1E4C58BC003F9481 /* GoogleActivity.m */; };
+		6DB922EF1E4C5A14003F9481 /* facebook_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922EC1E4C5A14003F9481 /* facebook_icon.png */; };
+		6DB922F01E4C5A14003F9481 /* google_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922ED1E4C5A14003F9481 /* google_icon.png */; };
+		6DB922F11E4C5A14003F9481 /* twitter_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922EE1E4C5A14003F9481 /* twitter_icon.png */; };
 		B20D2A8DC180731FD857DA75 /* Pods_SNSShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5651BD13086E12CDB3030E22 /* Pods_SNSShareTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -55,6 +61,15 @@
 		6D53979C1E4B16E200D41B51 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		6D53979F1E4B1CA800D41B51 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		6D5397A01E4B1CA800D41B51 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		6DB922E11E4C34C2003F9481 /* FacebookActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookActivity.h; sourceTree = "<group>"; };
+		6DB922E21E4C34C2003F9481 /* FacebookActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookActivity.m; sourceTree = "<group>"; };
+		6DB922E61E4C58A9003F9481 /* TwitterActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterActivity.h; sourceTree = "<group>"; };
+		6DB922E71E4C58A9003F9481 /* TwitterActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwitterActivity.m; sourceTree = "<group>"; };
+		6DB922E91E4C58BC003F9481 /* GoogleActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoogleActivity.h; sourceTree = "<group>"; };
+		6DB922EA1E4C58BC003F9481 /* GoogleActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoogleActivity.m; sourceTree = "<group>"; };
+		6DB922EC1E4C5A14003F9481 /* facebook_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = facebook_icon.png; sourceTree = "<group>"; };
+		6DB922ED1E4C5A14003F9481 /* google_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = google_icon.png; sourceTree = "<group>"; };
+		6DB922EE1E4C5A14003F9481 /* twitter_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_icon.png; sourceTree = "<group>"; };
 		FA6CBD58843F5F909FBED1FB /* Pods-SNSShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNSShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNSShare/Pods-SNSShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -135,6 +150,12 @@
 				6D53979C1E4B16E200D41B51 /* ImageCell.xib */,
 				6D53979F1E4B1CA800D41B51 /* DetailViewController.h */,
 				6D5397A01E4B1CA800D41B51 /* DetailViewController.m */,
+				6DB922E11E4C34C2003F9481 /* FacebookActivity.h */,
+				6DB922E21E4C34C2003F9481 /* FacebookActivity.m */,
+				6DB922E61E4C58A9003F9481 /* TwitterActivity.h */,
+				6DB922E71E4C58A9003F9481 /* TwitterActivity.m */,
+				6DB922E91E4C58BC003F9481 /* GoogleActivity.h */,
+				6DB922EA1E4C58BC003F9481 /* GoogleActivity.m */,
 			);
 			path = SNSShare;
 			sourceTree = "<group>";
@@ -142,6 +163,9 @@
 		6D5397751E4B14A400D41B51 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				6DB922EC1E4C5A14003F9481 /* facebook_icon.png */,
+				6DB922ED1E4C5A14003F9481 /* google_icon.png */,
+				6DB922EE1E4C5A14003F9481 /* twitter_icon.png */,
 				6D5397761E4B14A400D41B51 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -246,6 +270,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5397851E4B14A400D41B51 /* LaunchScreen.storyboard in Resources */,
+				6DB922F11E4C5A14003F9481 /* twitter_icon.png in Resources */,
+				6DB922F01E4C5A14003F9481 /* google_icon.png in Resources */,
+				6DB922EF1E4C5A14003F9481 /* facebook_icon.png in Resources */,
 				6D53979E1E4B16E200D41B51 /* ImageCell.xib in Resources */,
 				6D5397821E4B14A400D41B51 /* Assets.xcassets in Resources */,
 				6D5397801E4B14A400D41B51 /* Main.storyboard in Resources */,
@@ -361,8 +388,11 @@
 			files = (
 				6D5397A11E4B1CA800D41B51 /* DetailViewController.m in Sources */,
 				6D53977D1E4B14A400D41B51 /* ViewController.m in Sources */,
+				6DB922E31E4C34C2003F9481 /* FacebookActivity.m in Sources */,
 				6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */,
 				6D53977A1E4B14A400D41B51 /* AppDelegate.m in Sources */,
+				6DB922EB1E4C58BC003F9481 /* GoogleActivity.m in Sources */,
+				6DB922E81E4C58A9003F9481 /* TwitterActivity.m in Sources */,
 				6D5397771E4B14A400D41B51 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

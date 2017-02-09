@@ -22,7 +22,8 @@
 @interface ViewController ()
 
 @property (strong, nonatomic) NSMutableArray *imageList;
-@property (assign, nonatomic) NSInteger seletedRow;
+
+@property (strong, nonatomic) UIImage *detailImage;
 @property (weak, nonatomic) IBOutlet UICollectionView *cvImage;
 
 
@@ -89,10 +90,11 @@
 {
     NSLog(@"didSelect : %zd", indexPath.item);
     
-    self.seletedRow = indexPath.item;
+    PHAsset *asset = self.imageList[indexPath.item];
+    
+    [self getImageWithPHAsset:asset completion:nil];
     
     [self performSegueWithIdentifier:@"sgid-moveToDetailVC" sender:self];
-
 }
 
 
@@ -139,16 +141,42 @@
     
 }
 
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)getImageWithPHAsset:(PHAsset *)asset completion:(void (^)(void))completion
 {
-    if([segue.identifier isEqualToString:@"sgid-moveToDetailVC"])
-    {
-        DetailViewController *detailVC = [segue destinationViewController];
+    __block UIImage *resultImage = self.detailImage;
+    
+    CGSize ImageSize = CGSizeMake(300.0f, 300.0f);
+    
+    [[PHImageManager defaultManager] requestImageForAsset:asset targetSize:ImageSize contentMode:PHImageContentModeAspectFit options:nil resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
         
-        PHAsset *asset = self.imageList[self.seletedRow];
+        resultImage = result;
+//        
+//        NSLog(@"resultImage : %@", result);
+//        
+//        if(completion)
+//            completion();
         
-        [self setImageFromPHAsset:asset imageView:detailVC.ivDetail];
-    }
+        @try {
+            NSDictionary *userInfo = @{ @"userInfo" : resultImage };
+            
+            [[NSNotificationCenter defaultCenter] postNotificationName:@"ImageSetting" object:nil userInfo:userInfo];
+        } @catch (NSException *exception) {
+            
+        }
+        
+
+        
+    }];
 }
+
+//- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+//{
+//    if([segue.identifier isEqualToString:@"sgid-moveToDetailVC"])
+//    {
+//        DetailViewController *detailVC = [segue destinationViewController];
+//        
+//        detailVC.image = self.detailImage;
+//    }
+//}
 
 @end
