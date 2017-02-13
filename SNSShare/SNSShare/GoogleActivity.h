@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
+
 @interface GoogleActivity : UIActivity
+
+- (instancetype)initWithViewController:(UIViewController *)vc;
+
 
 @end

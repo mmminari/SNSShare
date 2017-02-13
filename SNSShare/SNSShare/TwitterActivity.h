@@ -10,4 +10,8 @@
 
 @interface TwitterActivity : UIActivity
 
+- (instancetype)initWithViewController:(UIViewController *)vc image:(UIImage *)image;
+
+
+
 @end

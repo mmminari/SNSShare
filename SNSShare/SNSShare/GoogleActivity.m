@@ -7,9 +7,25 @@
 //
 
 #import "GoogleActivity.h"
+#import "SNSClass.h"
+
+@interface GoogleActivity ()
+
+@property (strong, nonatomic) UIViewController *vc;
+
+@end
 
 @implementation GoogleActivity
 
+- (instancetype)initWithViewController:(UIViewController *)vc
+{
+    if(self = [super init])
+    {
+        self.vc = vc;
+    }
+    
+    return self;
+}
 
 + (UIActivityCategory)activityCategor
 {
@@ -18,7 +34,7 @@
 
 - (nullable NSString *)activityTitle
 {
-    NSString *result = @"Facebook";
+    NSString *result = @"Google";
     
     return result;
 }
@@ -46,6 +62,16 @@
 {
     NSLog(@"google share");
     
+    SNSClass *sns = [[SNSClass alloc]init];
+    
+    if([sns checkGoogleToken])
+    {
+        
+    }
+    else
+    {
+        [sns doGoogleLoginWithViewController:self.vc];
+    }
 }
 
 @end

@@ -11,7 +11,9 @@
 #import "TwitterActivity.h"
 #import "GoogleActivity.h"
 
-@interface DetailViewController () <UIAlertViewDelegate>
+#import <Google/SignIn.h>
+
+@interface DetailViewController () <UIAlertViewDelegate, GIDSignInUIDelegate>
 
 
 
@@ -46,13 +48,13 @@
 {
     
     FacebookActivity *activtyFacebook = [[FacebookActivity alloc]initWithImage:self.image];
-    TwitterActivity *activityTwitter = [[TwitterActivity alloc]init];
-    GoogleActivity *activityGoogle = [[GoogleActivity alloc]init];
+    TwitterActivity *activityTwitter = [[TwitterActivity alloc]initWithViewController:self image:self.image];
+    GoogleActivity *activityGoogle = [[GoogleActivity alloc]initWithViewController:self];
     
     
     UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[activtyFacebook, activityTwitter, activityGoogle] applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
     
-    [self.navigationController presentViewController:activityVC animated:YES completion:nil];
+    [self presentViewController:activityVC animated:YES completion:nil];
 
 }
 

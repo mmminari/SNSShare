@@ -13,12 +13,20 @@
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface SNSClass () <FBSDKSharingDelegate>
+//Twitter
+#import <TwitterKit/TwitterKit.h>
+
+
+//Google
+#import <Google/SignIn.h>
+
+@interface SNSClass () <FBSDKSharingDelegate, TWTRComposerViewControllerDelegate, GIDSignInUIDelegate>
 
 @end
 
 @implementation SNSClass
 
+#pragma mark - Facebook
 - (BOOL)checkFacebookToken
 {
     BOOL result = NO;
@@ -63,6 +71,98 @@
     content.photos = @[photo];
     
     [FBSDKShareAPI shareWithContent:content delegate:self];
+    
+}
+
+#pragma mark - SFBSDKSharingDelegate
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+{
+    
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
+{
+    
+}
+
+- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
+{
+    
+}
+
+#pragma mark - Twitter
+- (BOOL)checkTwitterToken
+{
+    BOOL result = NO;
+    
+    TWTRSessionStore *store = [[Twitter sharedInstance] sessionStore];
+    
+    TWTRSession *session = store.session;
+    
+    if(session.authToken != nil)
+    {
+        result = YES;
+    }
+    
+    return result;
+}
+
+- (void)doTwitterLoginSelf:(UIViewController *)selfVC WithCompletion:(void(^)(void))completion
+{
+    [[Twitter sharedInstance]logInWithViewController:selfVC
+                                             methods:TWTRLoginMethodWebBasedForceLogin
+                                          completion:^(TWTRSession * _Nullable session, NSError * _Nullable error) {
+        
+    }];
+}
+
+- (void)shareTwitterWithViewController:(UIViewController *)vc image:(UIImage *)image
+{
+    TWTRComposer *composer = [[TWTRComposer alloc]init];
+    
+    [composer setImage:image];
+    
+    [composer showFromViewController:vc completion:^(TWTRComposerResult result) {
+        
+        NSLog(@"Twitter share : %zd", result);
+        
+    }];
+}
+
+#pragma mark - Google
+- (BOOL)checkGoogleToken
+{
+    BOOL result = NO;
+    
+    if([GIDSignIn sharedInstance].currentUser != nil)
+    {
+        result = YES;
+    }
+    
+    return result;
+}
+
+- (void)doGoogleLoginWithViewController:(UIViewController *)vc
+{
+    [GIDSignIn sharedInstance].uiDelegate = (id<GIDSignInUIDelegate>)vc;
+    [GIDSignIn sharedInstance].delegate = (id<GIDSignInDelegate>)vc;
+
+    
+    [[GIDSignIn sharedInstance] signIn];
+}
+
+- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController
+{
+    
+}
+
+- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
+{
+    
+}
+
+- (void)shareGoogle
+{
     
 }
 

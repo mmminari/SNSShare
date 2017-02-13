@@ -18,6 +18,7 @@
 		6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53979B1E4B16E200D41B51 /* ImageCell.m */; };
 		6D53979E1E4B16E200D41B51 /* ImageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6D53979C1E4B16E200D41B51 /* ImageCell.xib */; };
 		6D5397A11E4B1CA800D41B51 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5397A01E4B1CA800D41B51 /* DetailViewController.m */; };
+		6D840D8D1E4DA10600F76176 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6D840D8C1E4DA10600F76176 /* GoogleService-Info.plist */; };
 		6DB922E31E4C34C2003F9481 /* FacebookActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922E21E4C34C2003F9481 /* FacebookActivity.m */; };
 		6DB922E81E4C58A9003F9481 /* TwitterActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922E71E4C58A9003F9481 /* TwitterActivity.m */; };
 		6DB922EB1E4C58BC003F9481 /* GoogleActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922EA1E4C58BC003F9481 /* GoogleActivity.m */; };
@@ -62,6 +63,7 @@
 		6D53979C1E4B16E200D41B51 /* ImageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageCell.xib; sourceTree = "<group>"; };
 		6D53979F1E4B1CA800D41B51 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
 		6D5397A01E4B1CA800D41B51 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		6D840D8C1E4DA10600F76176 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6DB922E11E4C34C2003F9481 /* FacebookActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FacebookActivity.h; sourceTree = "<group>"; };
 		6DB922E21E4C34C2003F9481 /* FacebookActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FacebookActivity.m; sourceTree = "<group>"; };
 		6DB922E61E4C58A9003F9481 /* TwitterActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwitterActivity.h; sourceTree = "<group>"; };
@@ -147,6 +149,7 @@
 				6D5397811E4B14A400D41B51 /* Assets.xcassets */,
 				6D5397831E4B14A400D41B51 /* LaunchScreen.storyboard */,
 				6D5397861E4B14A400D41B51 /* Info.plist */,
+				6D840D8C1E4DA10600F76176 /* GoogleService-Info.plist */,
 				6D5397751E4B14A400D41B51 /* Supporting Files */,
 				6D53979A1E4B16E200D41B51 /* ImageCell.h */,
 				6D53979B1E4B16E200D41B51 /* ImageCell.m */,
@@ -198,6 +201,7 @@
 				6D5397701E4B14A400D41B51 /* Resources */,
 				25A083BF0B932636FF1D4F5C /* [CP] Embed Pods Frameworks */,
 				C02BDD486F03EA5E0E336220 /* [CP] Copy Pods Resources */,
+				6D840D8B1E4D52BA00F76176 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -275,6 +279,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6D5397851E4B14A400D41B51 /* LaunchScreen.storyboard in Resources */,
+				6D840D8D1E4DA10600F76176 /* GoogleService-Info.plist in Resources */,
 				6DB922F11E4C5A14003F9481 /* twitter_icon.png in Resources */,
 				6DB922F01E4C5A14003F9481 /* google_icon.png in Resources */,
 				6DB922EF1E4C5A14003F9481 /* facebook_icon.png in Resources */,
@@ -323,6 +328,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SNSShareTests/Pods-SNSShareTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		6D840D8B1E4D52BA00F76176 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" f65ff130ceea4d5d32930f1754c6d7bb63c75f89 0a4907eddd360be5d66b8c84f6d9cbe4ede1e7b9aeea2591efe5a6b355e28e1a";
 		};
 		C02BDD486F03EA5E0E336220 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
