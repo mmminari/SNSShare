@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-
 @interface SNSClass : NSObject 
 
 - (BOOL)checkFacebookToken;
@@ -22,10 +21,6 @@
 
 - (BOOL)checkGoogleToken;
 - (void)doGoogleLoginWithViewController:(UIViewController *)vc;
-
-
-
-
 
 
 @end

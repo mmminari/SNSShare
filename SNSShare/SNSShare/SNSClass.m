@@ -144,25 +144,15 @@
 
 - (void)doGoogleLoginWithViewController:(UIViewController *)vc
 {
-    [vc dismissViewControllerAnimated:YES completion:nil];
-    
-    GIDSignIn *signIn = [GIDSignIn sharedInstance];
-    
-    signIn.uiDelegate = (id<GIDSignInUIDelegate>)vc;
-    
-    [signIn signIn];
-    
-    
-    //[[GIDSignIn sharedInstance] signIn];
-}
+    [vc dismissViewControllerAnimated:YES completion:^{
+        
+        GIDSignIn *signIn = [GIDSignIn sharedInstance];
+        
+        signIn.uiDelegate = (id<GIDSignInUIDelegate>)vc;
+        
+        [signIn signIn];
 
-- (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController
-{
-    
-}
-
-- (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error
-{
+    }];
     
 }
 

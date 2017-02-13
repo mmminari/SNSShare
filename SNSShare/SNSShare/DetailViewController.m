@@ -15,8 +15,6 @@
 
 @interface DetailViewController () <UIAlertViewDelegate, GIDSignInUIDelegate>
 
-
-
 @end
 
 @implementation DetailViewController
@@ -56,6 +54,12 @@
     
     [self presentViewController:activityVC animated:YES completion:nil];
 
+}
+
+
+- (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController
+{
+    
 }
 
 
