@@ -136,7 +136,7 @@
     
     if([GIDSignIn sharedInstance].currentUser != nil)
     {
-        result = YES;
+        result = YES;     
     }
     
     return result;
@@ -144,11 +144,16 @@
 
 - (void)doGoogleLoginWithViewController:(UIViewController *)vc
 {
-    [GIDSignIn sharedInstance].uiDelegate = (id<GIDSignInUIDelegate>)vc;
-    [GIDSignIn sharedInstance].delegate = (id<GIDSignInDelegate>)vc;
-
+    [vc dismissViewControllerAnimated:YES completion:nil];
     
-    [[GIDSignIn sharedInstance] signIn];
+    GIDSignIn *signIn = [GIDSignIn sharedInstance];
+    
+    signIn.uiDelegate = (id<GIDSignInUIDelegate>)vc;
+    
+    [signIn signIn];
+    
+    
+    //[[GIDSignIn sharedInstance] signIn];
 }
 
 - (void)signIn:(GIDSignIn *)signIn presentViewController:(UIViewController *)viewController
