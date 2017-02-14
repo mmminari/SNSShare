@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-@interface SNSClass : NSObject 
+@interface SNSClass : UIViewController
 
 - (BOOL)checkFacebookToken;
 - (void)doFacebookLoginSelf:(UIViewController *)selfVC WithCompletion:(void (^)(void))completion;

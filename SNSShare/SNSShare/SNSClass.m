@@ -77,17 +77,18 @@
 #pragma mark - SFBSDKSharingDelegate
 - (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
 {
-    
+    NSLog(@"did complete to share with facebook");
 }
 
 - (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
 {
-    
+    NSLog(@"did fail to share with facebook");
 }
 
 - (void)sharerDidCancel:(id<FBSDKSharing>)sharer
 {
-    
+    NSLog(@"did cancel to share with facebook");
+
 }
 
 #pragma mark - Twitter
@@ -160,5 +161,6 @@
 {
     
 }
+
 
 @end

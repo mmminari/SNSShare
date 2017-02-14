@@ -59,7 +59,7 @@
 
 - (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController
 {
-    
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 
