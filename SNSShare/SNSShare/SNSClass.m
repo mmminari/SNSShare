@@ -113,6 +113,9 @@
     [[Twitter sharedInstance]logInWithViewController:selfVC
                                              methods:TWTRLoginMethodWebBasedForceLogin
                                           completion:^(TWTRSession * _Nullable session, NSError * _Nullable error) {
+                                              
+                                              if(completion)
+                                                  completion();
         
     }];
 }
@@ -126,6 +129,8 @@
     [composer showFromViewController:vc completion:^(TWTRComposerResult result) {
         
         NSLog(@"Twitter share : %zd", result);
+        
+        [vc.navigationController popViewControllerAnimated:YES];
         
     }];
 }
