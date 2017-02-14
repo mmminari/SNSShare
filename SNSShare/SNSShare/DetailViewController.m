@@ -12,8 +12,10 @@
 #import "GoogleActivity.h"
 
 #import <Google/SignIn.h>
+#import <FBSDKShareKit/FBSDKShareKit.h>
 
-@interface DetailViewController () <UIAlertViewDelegate, GIDSignInUIDelegate>
+
+@interface DetailViewController () <UIAlertViewDelegate, GIDSignInUIDelegate, FBSDKSharingDelegate>
 
 @end
 
@@ -45,7 +47,7 @@
 - (IBAction)touchedShareButton:(UIButton *)sender
 {
     
-    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]initWithImage:self.image];
+    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]initWithImage:self.image viewController:self];
     TwitterActivity *activityTwitter = [[TwitterActivity alloc]initWithViewController:self image:self.image];
     GoogleActivity *activityGoogle = [[GoogleActivity alloc]initWithViewController:self];
     
@@ -56,10 +58,29 @@
 
 }
 
-
+#pragma mark - GIDSignInUIDelegate
 - (void)signIn:(GIDSignIn *)signIn dismissViewController:(UIViewController *)viewController
 {
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - SFBSDKSharingDelegate
+- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+{
+    NSLog(@"did complete to share with facebook");
+    
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
+{
+    NSLog(@"did fail to share with facebook");
+}
+
+- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
+{
+    NSLog(@"did cancel to share with facebook");
+    
 }
 
 

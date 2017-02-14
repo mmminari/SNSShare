@@ -13,7 +13,7 @@
 
 - (BOOL)checkFacebookToken;
 - (void)doFacebookLoginSelf:(UIViewController *)selfVC WithCompletion:(void (^)(void))completion;
-- (void)shareFacebookWithImage:(UIImage *)image;
+- (void)shareFacebookWithImage:(UIImage *)image viewController:(UIViewController *)vc;
 
 - (BOOL)checkTwitterToken;
 - (void)doTwitterLoginSelf:(UIViewController *)selfVC WithCompletion:(void(^)(void))completion;

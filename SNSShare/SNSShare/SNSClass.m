@@ -20,7 +20,7 @@
 //Google
 #import <Google/SignIn.h>
 
-@interface SNSClass () <FBSDKSharingDelegate, TWTRComposerViewControllerDelegate, GIDSignInUIDelegate>
+@interface SNSClass () <TWTRComposerViewControllerDelegate, GIDSignInUIDelegate>
 
 @end
 
@@ -58,7 +58,7 @@
     }];
 }
 
-- (void)shareFacebookWithImage:(UIImage *)image
+- (void)shareFacebookWithImage:(UIImage *)image viewController:(UIViewController *)vc
 {
     FBSDKSharePhoto *photo = [[FBSDKSharePhoto alloc] init];
     
@@ -70,26 +70,26 @@
     
     content.photos = @[photo];
     
-    [FBSDKShareAPI shareWithContent:content delegate:self];
+    [FBSDKShareAPI shareWithContent:content delegate:(id<FBSDKSharingDelegate>)vc];
     
 }
 
-#pragma mark - SFBSDKSharingDelegate
-- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
-{
-    NSLog(@"did complete to share with facebook");
-}
-
-- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
-{
-    NSLog(@"did fail to share with facebook");
-}
-
-- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
-{
-    NSLog(@"did cancel to share with facebook");
-
-}
+//#pragma mark - SFBSDKSharingDelegate
+//- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
+//{
+//    NSLog(@"did complete to share with facebook");
+//}
+//
+//- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
+//{
+//    NSLog(@"did fail to share with facebook");
+//}
+//
+//- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
+//{
+//    NSLog(@"did cancel to share with facebook");
+//
+//}
 
 #pragma mark - Twitter
 - (BOOL)checkTwitterToken

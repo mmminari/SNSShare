@@ -12,16 +12,18 @@
 @interface FacebookActivity ()
 
 @property (strong, nonatomic) UIImage *image;
+@property (strong, nonatomic) UIViewController *vc;
 
 @end
 
 @implementation FacebookActivity
 
-- (instancetype)initWithImage:(UIImage *)image
+- (instancetype)initWithImage:(UIImage *)image viewController:(UIViewController *)vc
 {
     if(self = [super init])
     {
         self.image = image;
+        self.vc = vc;
     }
     
     return self;
@@ -67,13 +69,13 @@
     
     if([sns checkFacebookToken])
     {
-        [sns shareFacebookWithImage:self.image];
+        [sns shareFacebookWithImage:self.image viewController:self.vc];
     }
     else
     {
         [sns doFacebookLoginSelf:self.activityViewController WithCompletion:^{
             
-            [sns shareFacebookWithImage:self.image];
+            [sns shareFacebookWithImage:self.image viewController:self.vc];
         }];
     }
 }
