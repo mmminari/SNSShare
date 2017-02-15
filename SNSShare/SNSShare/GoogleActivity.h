@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentActivity.h"
 
-
-@interface GoogleActivity : UIActivity
+@interface GoogleActivity : ParentActivity
 
 - (instancetype)initWithViewController:(UIViewController *)vc;
 

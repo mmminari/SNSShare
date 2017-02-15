@@ -7,28 +7,12 @@
 //
 
 #import "FacebookActivity.h"
-#import "SNSClass.h"
 
 @interface FacebookActivity ()
-
-@property (strong, nonatomic) UIImage *image;
-@property (strong, nonatomic) UIViewController *vc;
 
 @end
 
 @implementation FacebookActivity
-
-- (instancetype)initWithImage:(UIImage *)image viewController:(UIViewController *)vc
-{
-    if(self = [super init])
-    {
-        self.image = image;
-        self.vc = vc;
-    }
-    
-    return self;
-    
-}
 
 + (UIActivityCategory)activityCategor
 {
@@ -51,7 +35,6 @@
 {
     UIImage *result = [UIImage imageNamed:@"facebook_icon"];
     
-    
     return result;
 }
 
@@ -63,21 +46,15 @@
 // 눌렀을 때 실행될 액션들
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
+    NSLog(@"self : %@", self.delegate);
+    
+    if([self.delegate respondsToSelector:@selector(didTouchFacebookButton)])
+    {
+        [self.delegate didTouchFacebookButton];
+    }
+    
     NSLog(@"facebook share");
-    
-    SNSClass *sns = [[SNSClass alloc]init];
-    
-    if([sns checkFacebookToken])
-    {
-        [sns shareFacebookWithImage:self.image viewController:self.vc];
-    }
-    else
-    {
-        [sns doFacebookLoginSelf:self.activityViewController WithCompletion:^{
-            
-            [sns shareFacebookWithImage:self.image viewController:self.vc];
-        }];
-    }
+
 }
 
 @end

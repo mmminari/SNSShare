@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2B42069CACF332DD0DF87ECA /* Pods_SNSShare.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FB9D006E63E1F0DF7FE045C /* Pods_SNSShare.framework */; };
+		6D46D7E31E52F81700A61073 /* ParentActivity.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D46D7E21E52F81700A61073 /* ParentActivity.m */; };
 		6D5397771E4B14A400D41B51 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5397761E4B14A400D41B51 /* main.m */; };
 		6D53977A1E4B14A400D41B51 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D5397791E4B14A400D41B51 /* AppDelegate.m */; };
 		6D53977D1E4B14A400D41B51 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6D53977C1E4B14A400D41B51 /* ViewController.m */; };
@@ -45,6 +46,8 @@
 		44479871267578096A950E1B /* Pods-SNSShare.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNSShare.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SNSShare/Pods-SNSShare.debug.xcconfig"; sourceTree = "<group>"; };
 		4FB9D006E63E1F0DF7FE045C /* Pods_SNSShare.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNSShare.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5651BD13086E12CDB3030E22 /* Pods_SNSShareTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SNSShareTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6D46D7E11E52F81700A61073 /* ParentActivity.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ParentActivity.h; sourceTree = "<group>"; };
+		6D46D7E21E52F81700A61073 /* ParentActivity.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ParentActivity.m; sourceTree = "<group>"; };
 		6D5397721E4B14A400D41B51 /* SNSShare.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SNSShare.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6D5397761E4B14A400D41B51 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6D5397781E4B14A400D41B51 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -164,6 +167,8 @@
 				6DB922EA1E4C58BC003F9481 /* GoogleActivity.m */,
 				6DB922F21E4C5DEF003F9481 /* SNSClass.h */,
 				6DB922F31E4C5DEF003F9481 /* SNSClass.m */,
+				6D46D7E11E52F81700A61073 /* ParentActivity.h */,
+				6D46D7E21E52F81700A61073 /* ParentActivity.m */,
 			);
 			path = SNSShare;
 			sourceTree = "<group>";
@@ -417,6 +422,7 @@
 				6DB922EB1E4C58BC003F9481 /* GoogleActivity.m in Sources */,
 				6DB922F41E4C5DEF003F9481 /* SNSClass.m in Sources */,
 				6DB922E81E4C58A9003F9481 /* TwitterActivity.m in Sources */,
+				6D46D7E31E52F81700A61073 /* ParentActivity.m in Sources */,
 				6D5397771E4B14A400D41B51 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

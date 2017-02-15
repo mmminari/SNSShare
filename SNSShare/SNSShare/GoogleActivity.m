@@ -7,7 +7,6 @@
 //
 
 #import "GoogleActivity.h"
-#import "SNSClass.h"
 
 @interface GoogleActivity ()
 
@@ -48,7 +47,6 @@
 {
     UIImage *result = [UIImage imageNamed:@"google_icon"];
     
-    
     return result;
 }
 
@@ -62,16 +60,11 @@
 {
     NSLog(@"google share");
     
-    SNSClass *sns = [[SNSClass alloc]init];
-    
-    if([sns checkGoogleToken])
+    if([self.delegate respondsToSelector:@selector(didTouchGoogleButton)])
     {
-        
+        [self.delegate didTouchGoogleButton];
     }
-    else
-    {
-        [sns doGoogleLoginWithViewController:self.vc];
-    }
+
 }
 
 @end

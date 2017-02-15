@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentActivity.h"
 
-@interface TwitterActivity : UIActivity
+@interface TwitterActivity : ParentActivity
 
-- (instancetype)initWithViewController:(UIViewController *)vc image:(UIImage *)image;
 
 
 

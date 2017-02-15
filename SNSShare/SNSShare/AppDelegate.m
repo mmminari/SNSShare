@@ -8,14 +8,6 @@
 
 #import "AppDelegate.h"
 
-//Facebook
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-
-//Twitter
-#import <Fabric/Fabric.h>
-#import <TwitterKit/TwitterKit.h>
-
-
 @interface AppDelegate ()
 
 @end

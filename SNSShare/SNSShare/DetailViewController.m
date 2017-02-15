@@ -7,15 +7,11 @@
 //
 
 #import "DetailViewController.h"
-#import "FacebookActivity.h"
-#import "TwitterActivity.h"
-#import "GoogleActivity.h"
-
-#import <Google/SignIn.h>
-#import <FBSDKShareKit/FBSDKShareKit.h>
-
+#import "SNSClass.h"
 
 @interface DetailViewController () <UIAlertViewDelegate, GIDSignInUIDelegate, FBSDKSharingDelegate>
+
+@property (strong, nonatomic) SNSClass *sns;
 
 @end
 
@@ -46,15 +42,9 @@
 
 - (IBAction)touchedShareButton:(UIButton *)sender
 {
+    self.sns = [[SNSClass alloc]initWithViewController:self image:self.image];
     
-    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]initWithImage:self.image viewController:self];
-    TwitterActivity *activityTwitter = [[TwitterActivity alloc]initWithViewController:self image:self.image];
-    GoogleActivity *activityGoogle = [[GoogleActivity alloc]initWithViewController:self];
-    
-    
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[activtyFacebook, activityTwitter, activityGoogle] applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
-    
-    [self presentViewController:activityVC animated:YES completion:nil];
+    [self presentViewController:[self.sns getActivityViewControllerWithActivites] animated:YES completion:nil];
 
 }
 

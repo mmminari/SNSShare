@@ -7,10 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ParentActivity.h"
 
-@interface FacebookActivity : UIActivity
+@interface FacebookActivity : ParentActivity
 
-- (instancetype)initWithImage:(UIImage *)image viewController:(UIViewController *)vc;
 
 
 @end

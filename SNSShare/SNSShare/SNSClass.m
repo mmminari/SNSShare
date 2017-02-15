@@ -1,3 +1,4 @@
+
 //
 //  SNSClass.m
 //  SNSShare
@@ -8,23 +9,103 @@
 
 #import "SNSClass.h"
 
-//Facebook
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import <FBSDKLoginKit/FBSDKLoginKit.h>
-#import <FBSDKShareKit/FBSDKShareKit.h>
+@interface SNSClass () <TWTRComposerViewControllerDelegate, GIDSignInUIDelegate, ActivityDelegate>
 
-//Twitter
-#import <TwitterKit/TwitterKit.h>
+@property (strong, nonatomic) UIViewController *vc;
+@property (strong, nonatomic) UIImage *image;
 
-
-//Google
-#import <Google/SignIn.h>
-
-@interface SNSClass () <TWTRComposerViewControllerDelegate, GIDSignInUIDelegate>
 
 @end
 
 @implementation SNSClass
+
+- (instancetype)initWithViewController:(UIViewController *)vc image:(UIImage *)image
+{
+    if(self = [super init])
+    {
+        self.vc = vc;
+        self.image = image;
+    }
+    
+    return self;
+    
+}
+
+- (UIActivityViewController *)getActivityViewControllerWithActivites
+{
+    FacebookActivity *activtyFacebook = [[FacebookActivity alloc]init];
+    TwitterActivity *activityTwitter = [[TwitterActivity alloc]init];
+    GoogleActivity *activityGoogle = [[GoogleActivity alloc]init];
+    
+    activtyFacebook.delegate = self;
+    activityTwitter.delegate = self;
+    activityGoogle.delegate = self;
+    
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[activtyFacebook, activityTwitter, activityGoogle] applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
+    
+    [activityVC setCompletionWithItemsHandler:^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
+        NSLog(@"completed: %@, \n%d, \n%@, \n%@,", activityType, completed, returnedItems, activityError);
+        
+    }];
+    
+    return activityVC;
+    
+}
+
+#pragma mark - ActivityDelegate
+- (void)didTouchFacebookButton
+{
+    [self.vc dismissViewControllerAnimated:YES completion:^{
+        
+        if([self checkFacebookToken])
+        {
+            [self shareFacebookWithImage:self.image viewController:self.vc];
+        }
+        else
+        {
+            [self doFacebookLoginSelf:self.vc WithCompletion:^{
+                
+                [self shareFacebookWithImage:self.image viewController:self.vc];
+            }];
+        }
+    }];
+}
+
+- (void)didTouchTwitterButton
+{
+    [self.vc dismissViewControllerAnimated:YES completion:^{
+        if([self checkTwitterToken])
+        {
+            [self shareTwitterWithViewController:self.vc image:self.image];
+        }
+        else
+        {
+            [self doTwitterLoginSelf:self.vc WithCompletion:^{
+                
+                [self shareTwitterWithViewController:self.vc image:self.image];
+                
+            }];
+        }
+    }];
+
+}
+
+- (void)didTouchGoogleButton
+{
+    [self.vc dismissViewControllerAnimated:YES completion:^{
+        
+        if([self checkGoogleToken])
+        {
+            NSLog(@"Google Share X");
+        }
+        else
+        {
+            [self doGoogleLoginWithViewController:self.vc];
+        }
+        
+    }];
+
+}
 
 #pragma mark - Facebook
 - (BOOL)checkFacebookToken
@@ -73,23 +154,6 @@
     [FBSDKShareAPI shareWithContent:content delegate:(id<FBSDKSharingDelegate>)vc];
     
 }
-
-//#pragma mark - SFBSDKSharingDelegate
-//- (void)sharer:(id<FBSDKSharing>)sharer didCompleteWithResults:(NSDictionary *)results
-//{
-//    NSLog(@"did complete to share with facebook");
-//}
-//
-//- (void)sharer:(id<FBSDKSharing>)sharer didFailWithError:(NSError *)error
-//{
-//    NSLog(@"did fail to share with facebook");
-//}
-//
-//- (void)sharerDidCancel:(id<FBSDKSharing>)sharer
-//{
-//    NSLog(@"did cancel to share with facebook");
-//
-//}
 
 #pragma mark - Twitter
 - (BOOL)checkTwitterToken
