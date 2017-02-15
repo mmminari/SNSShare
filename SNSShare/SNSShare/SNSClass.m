@@ -41,7 +41,8 @@
     activityTwitter.delegate = self;
     activityGoogle.delegate = self;
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[activtyFacebook, activityTwitter, activityGoogle] applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[@"a", @"b"]
+                                                                            applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
     
     [activityVC setCompletionWithItemsHandler:^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
         NSLog(@"completed: %@, \n%d, \n%@, \n%@,", activityType, completed, returnedItems, activityError);
@@ -169,7 +170,7 @@
         result = YES;
     }
     
-    return result;
+    return NO;
 }
 
 - (void)doTwitterLoginSelf:(UIViewController *)selfVC WithCompletion:(void(^)(void))completion

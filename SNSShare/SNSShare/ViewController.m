@@ -45,6 +45,10 @@
     
     
 }
+- (void)viewWillAppear:(BOOL)animated
+{
+    
+}
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -102,22 +106,29 @@
 
 - (void)getAlbum
 {
-    PHFetchResult *result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
-    
-    [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    // 사용자 앨범에 접근 허가했을 경우 이미지 로드
+    [PHPhotoLibrary requestAuthorization:^(PHAuthorizationStatus status) {
         
-        PHAsset *asset = (PHAsset *)obj;
-        
-        [self.imageList addObject:asset];
+        if(status == PHAuthorizationStatusAuthorized)
+        {
+            PHFetchResult *result = [PHAsset fetchAssetsWithMediaType:PHAssetMediaTypeImage options:nil];
+            
+            [result enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+                
+                PHAsset *asset = (PHAsset *)obj;
+                
+                [self.imageList addObject:asset];
+                
+            }];
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self.cvImage reloadData];
+                
+            });
+        }
         
     }];
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        
-        [self.cvImage reloadData];
-        
-    });
-    
 }
 
 #pragma mark - Private Method
