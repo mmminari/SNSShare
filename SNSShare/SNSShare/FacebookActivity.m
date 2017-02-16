@@ -45,13 +45,12 @@
 
 // 눌렀을 때 실행될 액션들
 - (void)prepareWithActivityItems:(NSArray *)activityItems
-{
-    NSLog(@"self : %@", self.delegate);
-    
-    if([self.delegate respondsToSelector:@selector(didTouchFacebookButton)])
+{    
+    if([self.delegate respondsToSelector:@selector(didTouchShareButtonWithActivityTitle:)])
     {
-        [self.delegate didTouchFacebookButton];
+        [self.delegate didTouchShareButtonWithActivityTitle:self.activityTitle];
     }
+
     
     NSLog(@"facebook share");
 

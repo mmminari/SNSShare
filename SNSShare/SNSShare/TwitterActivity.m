@@ -46,9 +46,9 @@
 // 눌렀을 때 실행될 액션들
 - (void)prepareWithActivityItems:(NSArray *)activityItems
 {
-    if([self.delegate respondsToSelector:@selector(didTouchTwitterButton)])
+    if([self.delegate respondsToSelector:@selector(didTouchShareButtonWithActivityTitle:)])
     {
-        [self.delegate didTouchTwitterButton];
+        [self.delegate didTouchShareButtonWithActivityTitle:self.activityTitle];
     }
 
 }

@@ -60,10 +60,11 @@
 {
     NSLog(@"google share");
     
-    if([self.delegate respondsToSelector:@selector(didTouchGoogleButton)])
+    if([self.delegate respondsToSelector:@selector(didTouchShareButtonWithActivityTitle:)])
     {
-        [self.delegate didTouchGoogleButton];
+        [self.delegate didTouchShareButtonWithActivityTitle:self.activityTitle];
     }
+
 
 }
 

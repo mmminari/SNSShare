@@ -34,7 +34,6 @@ typedef NS_ENUM(NSUInteger, TWTRCardType){
 /**
  *  Type of Twitter Card configuration.
  */
-
 @property (nonatomic, readonly) TWTRCardType cardType;
 
 /**

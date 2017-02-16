@@ -41,7 +41,7 @@
     activityTwitter.delegate = self;
     activityGoogle.delegate = self;
     
-    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[@"a", @"b"]
+    UIActivityViewController *activityVC = [[UIActivityViewController alloc]initWithActivityItems:@[self.image]
                                                                             applicationActivities:@[activtyFacebook, activityTwitter, activityGoogle]];
     
     [activityVC setCompletionWithItemsHandler:^(NSString *activityType, BOOL completed, NSArray *returnedItems, NSError *activityError) {
@@ -54,57 +54,72 @@
 }
 
 #pragma mark - ActivityDelegate
-- (void)didTouchFacebookButton
+
+- (void)didTouchShareButtonWithActivityTitle:(NSString *)title
 {
+    NSLog(@"didTouchShareButtonWithActivityTitle : %@", title);
+    
     [self.vc dismissViewControllerAnimated:YES completion:^{
         
-        if([self checkFacebookToken])
+        if([title isEqualToString:@"Facebook"])
         {
-            [self shareFacebookWithImage:self.image viewController:self.vc];
+            [self didTouchFacebookButton];
         }
-        else
+        else if([title isEqualToString:@"Twitter"])
         {
-            [self doFacebookLoginSelf:self.vc WithCompletion:^{
-                
-                [self shareFacebookWithImage:self.image viewController:self.vc];
-            }];
+            [self didTouchTwitterButton];
         }
+        else if([title isEqualToString:@"Google"])
+        {
+            [self didTouchGoogleButton];
+        }
+        
     }];
+    
+}
+
+- (void)didTouchFacebookButton
+{
+    if([self checkFacebookToken])
+    {
+        [self shareFacebookWithImage:self.image viewController:self.vc];
+    }
+    else
+    {
+        [self doFacebookLoginSelf:self.vc WithCompletion:^{
+            
+            [self shareFacebookWithImage:self.image viewController:self.vc];
+        }];
+    }
 }
 
 - (void)didTouchTwitterButton
 {
-    [self.vc dismissViewControllerAnimated:YES completion:^{
-        if([self checkTwitterToken])
-        {
+    if([self checkTwitterToken])
+    {
+        [self shareTwitterWithViewController:self.vc image:self.image];
+    }
+    else
+    {
+        [self doTwitterLoginSelf:self.vc WithCompletion:^{
+            
             [self shareTwitterWithViewController:self.vc image:self.image];
-        }
-        else
-        {
-            [self doTwitterLoginSelf:self.vc WithCompletion:^{
-                
-                [self shareTwitterWithViewController:self.vc image:self.image];
-                
-            }];
-        }
-    }];
+            
+        }];
+    }
 
 }
 
 - (void)didTouchGoogleButton
 {
-    [self.vc dismissViewControllerAnimated:YES completion:^{
-        
-        if([self checkGoogleToken])
-        {
-            NSLog(@"Google Share X");
-        }
-        else
-        {
-            [self doGoogleLoginWithViewController:self.vc];
-        }
-        
-    }];
+    if([self checkGoogleToken])
+    {
+        NSLog(@"Google Share X");
+    }
+    else
+    {
+        [self doGoogleLoginWithViewController:self.vc];
+    }
 
 }
 
@@ -152,7 +167,21 @@
     
     content.photos = @[photo];
     
-    [FBSDKShareAPI shareWithContent:content delegate:(id<FBSDKSharingDelegate>)vc];
+//    [FBSDKShareAPI shareWithContent:content delegate:(id<FBSDKSharingDelegate>)vc];
+    
+    FBSDKShareDialog *dialog = [[FBSDKShareDialog alloc]init];
+    
+    dialog.shareContent = content;
+    
+    dialog.mode = FBSDKShareDialogModeAutomatic;
+    dialog.delegate = (id<FBSDKSharingDelegate>)vc;
+    dialog.fromViewController = vc;
+    [dialog show];
+    
+    // 공유 완료된 후 호출되는 delegate 찾기
+    
+    //[FBSDKShareDialog showFromViewController:vc withContent:content delegate:nil];
+    
     
 }
 
@@ -176,7 +205,7 @@
 - (void)doTwitterLoginSelf:(UIViewController *)selfVC WithCompletion:(void(^)(void))completion
 {
     [[Twitter sharedInstance]logInWithViewController:selfVC
-                                             methods:TWTRLoginMethodWebBasedForceLogin
+                                             methods:TWTRLoginMethodAll
                                           completion:^(TWTRSession * _Nullable session, NSError * _Nullable error) {
                                               
                                               if(completion)

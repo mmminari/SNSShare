@@ -10,9 +10,7 @@
 
 @protocol ActivityDelegate <NSObject>
 
-- (void)didTouchFacebookButton;
-- (void)didTouchTwitterButton;
-- (void)didTouchGoogleButton;
+- (void)didTouchShareButtonWithActivityTitle:(NSString *)title;
 
 @end
 

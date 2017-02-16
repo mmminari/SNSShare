@@ -31,7 +31,13 @@
     
     NSLog(@"image : %@", self.image);
     
-    self.ivDetail.image = self.image;
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.ivDetail.image = self.image;
+        
+    });
+    
+    
 }
 
 #pragma mark - User Action
@@ -83,8 +89,11 @@
     
     self.image = [userInfo objectForKey:@"userInfo"];
     
-    self.ivDetail.image = self.image;
-    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        
+        self.ivDetail.image = self.image;
+        
+    });
     [self.view layoutIfNeeded];
 
 }
