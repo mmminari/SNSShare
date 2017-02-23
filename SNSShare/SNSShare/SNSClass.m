@@ -11,7 +11,10 @@
 
 @interface SNSClass () <TWTRComposerViewControllerDelegate, GIDSignInUIDelegate, ActivityDelegate>
 
-@property (strong, nonatomic) UIViewController *vc;
+// UIViewController을 strong으로 선언해 코드가 찝찝했었음
+// -> weak로 수정
+// viewcontroller은 다른 view들과 계층 관계를 가지고 있기 때문에 strong으로 잡아둘 필요가 없음
+@property (weak, nonatomic) UIViewController *vc;
 @property (strong, nonatomic) UIImage *image;
 
 
