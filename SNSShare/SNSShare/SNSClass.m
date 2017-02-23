@@ -14,8 +14,11 @@
 // UIViewController을 strong으로 선언해 코드가 찝찝했었음
 // -> weak로 수정
 // viewcontroller은 다른 view들과 계층 관계를 가지고 있기 때문에 strong으로 잡아둘 필요가 없음
+
+// vc와 image 둘 다 초기화 하는 부분에서 그부분의 객체를 할당받는 용도로 사용하고 있기 때문에
+// 이 둘의 속성을 weak로 선언해야 ㅎㅁ.
 @property (weak, nonatomic) UIViewController *vc;
-@property (strong, nonatomic) UIImage *image;
+@property (weak, nonatomic) UIImage *image;
 
 
 @end
