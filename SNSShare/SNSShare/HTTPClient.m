@@ -99,19 +99,11 @@
                    success:(void (^)(id responseObject))success
                    failure:(void (^)(NSError *error))failure
 {
-
-//    self.responseSerializer = [AFJSONResponseSerializer serializer];
-//    
-    
-    self.requestSerializer = [AFJSONRequestSerializer serializer];
-    self.responseSerializer = [AFJSONResponseSerializer serializer];
-    
-    [self.requestSerializer setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
-
-    
+    //multipart 형태의 데이터를 업로드하기 위한부분
+    //formdata에 정보를 덧붙일 때 서버에서 정한 키 값("file")을 name에 넣어주어야 함
     [self POST:URLString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>  _Nonnull formData)
     {
-        [formData appendPartWithFileData:data name:@"image" fileName:@"image.png" mimeType:@"image/png"];
+        [formData appendPartWithFileData:data name:@"file" fileName:@"image.jpg" mimeType:@"image/jpeg"];
         
     } progress:^(NSProgress * _Nonnull uploadProgress) {
         
@@ -122,36 +114,6 @@
         if(failure)
             failure(error);
     }];
-    
-    
-    
-//    [self.requestSerializer setValue:@"multipart/form-data" forHTTPHeaderField:@"Content-Type"];
-//    
-//    
-//    NSMutableURLRequest *request = [[AFJSONRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:@"https://apidev.fanbook.me/aws/image" parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData)
-//                                    {
-//                                              [formData appendPartWithFileData:data name:@"image" fileName:@"image.png" mimeType:@"image/png"];
-//
-//                                        
-//                                    } error:nil];
-//    
-//    NSURLSessionUploadTask *uploadTask = [self uploadTaskWithStreamedRequest:request
-//                                                                    progress:^(NSProgress * _Nonnull uploadProgress) {
-//                      
-//                                                                    }
-//                                                              completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
-//                      if (error)
-//                      {
-//                          NSLog(@"error :%@", error.description);
-//                          
-//                      }
-//                      else
-//                      {
-//                          NSLog(@"success :%@", responseObject);
-//                      }
-//                  }];
-//    
-//    [uploadTask resume];
 }
 
 -(void)PUTWithUrlString:(NSString *)urlString parameters:(id)parameters

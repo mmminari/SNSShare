@@ -96,7 +96,9 @@
 
 - (void)reqUploadImage
 {
-    NSData *imageData = UIImagePNGRepresentation(self.image);
+    NSLog(@"height : %f, width : %f", self.image.size.height, self.image.size.width);
+    
+    NSData *imageData = UIImageJPEGRepresentation(self.image, 1.0f);
     
     [self.httpClient UPLOADWithUrlString:@"/aws/image" data:imageData success:^(id responseObject) {
         
