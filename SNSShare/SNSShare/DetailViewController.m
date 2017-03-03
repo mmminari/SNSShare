@@ -104,11 +104,31 @@
         
         NSLog(@"success : %@", responseObject);
         
+        [self successCompletionOfReqUploadImageWithResult:responseObject];
+        
     } failure:^(NSError *error) {
         
         NSLog(@"error : %@", error.description) ;
         
     }];
+}
+
+- (void)successCompletionOfReqUploadImageWithResult:(id)result
+{
+    NSInteger code = [[result objectForKey:@"code"]integerValue];
+    
+    NSString *message = [result objectForKey:@"message"];
+    
+    UIAlertController *controller = [UIAlertController alertControllerWithTitle:[NSString stringWithFormat:@"%zd", code] message:message preferredStyle:UIAlertControllerStyleAlert];
+    
+    UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    [controller addAction:ok];
+    
+    [self presentViewController:controller animated:YES completion:nil];
 }
 
 #pragma mark - GIDSignInUIDelegate
