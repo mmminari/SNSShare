@@ -108,16 +108,31 @@
                                     <action selector="touchedShareButton:" destination="WdS-Hq-SfY" eventType="touchUpInside" id="h2L-5n-QnF"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6qS-Ne-aFy">
+                                <rect key="frame" x="37" y="554" width="300" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="0.25098040700000002" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="UPLOAD">
+                                    <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="touchedUplaodButton:" destination="WdS-Hq-SfY" eventType="touchUpInside" id="Vwv-Vp-hfZ"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.80000001190000003" green="0.80000001190000003" blue="0.80000001190000003" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="gMT-rf-9kV" firstAttribute="trailing" secondItem="QlT-bP-mEC" secondAttribute="trailing" id="06A-IK-XWv"/>
                             <constraint firstItem="YIg-Rl-LAb" firstAttribute="centerX" secondItem="iot-VO-Qvr" secondAttribute="centerX" id="GJe-Ea-4pX"/>
                             <constraint firstItem="QlT-bP-mEC" firstAttribute="leading" secondItem="YIg-Rl-LAb" secondAttribute="leading" id="GVV-aB-fXa"/>
+                            <constraint firstItem="6qS-Ne-aFy" firstAttribute="centerX" secondItem="gMT-rf-9kV" secondAttribute="centerX" id="Ldt-kO-gij"/>
                             <constraint firstItem="QlT-bP-mEC" firstAttribute="height" secondItem="gMT-rf-9kV" secondAttribute="height" id="ZOm-b2-4MR"/>
                             <constraint firstItem="QlT-bP-mEC" firstAttribute="top" secondItem="YIg-Rl-LAb" secondAttribute="bottom" constant="20" id="en7-LD-e3J"/>
+                            <constraint firstItem="6qS-Ne-aFy" firstAttribute="width" secondItem="gMT-rf-9kV" secondAttribute="width" id="ezF-gW-S9a"/>
                             <constraint firstItem="YIg-Rl-LAb" firstAttribute="top" secondItem="v8t-Vk-svr" secondAttribute="bottom" constant="50" id="r0b-5X-xaz"/>
+                            <constraint firstItem="6qS-Ne-aFy" firstAttribute="height" secondItem="gMT-rf-9kV" secondAttribute="height" constant="10" id="svS-wM-7hb"/>
                             <constraint firstItem="gMT-rf-9kV" firstAttribute="leading" secondItem="QlT-bP-mEC" secondAttribute="leading" id="ukU-UT-MeN"/>
+                            <constraint firstItem="6qS-Ne-aFy" firstAttribute="top" secondItem="gMT-rf-9kV" secondAttribute="bottom" constant="20" id="w7X-RP-xvB"/>
                             <constraint firstItem="gMT-rf-9kV" firstAttribute="top" secondItem="QlT-bP-mEC" secondAttribute="bottom" constant="20" id="wBd-eV-HKB"/>
                             <constraint firstItem="QlT-bP-mEC" firstAttribute="trailing" secondItem="YIg-Rl-LAb" secondAttribute="trailing" id="zci-Ep-oE2"/>
                         </constraints>

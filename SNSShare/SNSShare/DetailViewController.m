@@ -8,10 +8,12 @@
 
 #import "DetailViewController.h"
 #import "SNSClass.h"
+#import "HTTPClient.h"
 
 @interface DetailViewController () <UIAlertViewDelegate, GIDSignInUIDelegate, FBSDKSharingDelegate>
 
 @property (strong, nonatomic) SNSClass *sns;
+@property (strong, nonatomic) HTTPClient *httpClient;
 
 @end
 
@@ -22,6 +24,8 @@
     [super viewDidLoad];
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didReceiveNotification:) name:@"ImageSetting" object:nil];
+    
+    self.httpClient = [[HTTPClient alloc]initWithBaseURL];
 
 }
 
@@ -36,8 +40,6 @@
         self.ivDetail.image = self.image;
         
     });
-    
-    
 }
 
 #pragma mark - User Action
@@ -52,6 +54,59 @@
     
     [self presentViewController:[self.sns getActivityViewControllerWithActivites] animated:YES completion:nil];
 
+}
+
+- (IBAction)touchedUplaodButton:(UIButton *)sender
+{
+    [self reqLogin];
+}
+
+#pragma mark - Reqeuest
+
+- (void)reqLogin
+{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    
+    [param setObject:@"yonghwinam@smtown.com" forKey:@"userID"];
+    [param setObject:@"apple0000" forKey:@"userPassword"];
+    [param setObject:@"autoLogin" forKey:@"Y"];
+    
+    NSDictionary *resigsterDevice =
+    @{
+      @"deviceToken":@"token",
+      @"deviceType":@"ios",
+      @"version":@"1",
+      @"lang":@"ko",
+      @"isPushOn":[NSNumber numberWithBool:TRUE],
+      @"isPushDebug":[NSNumber numberWithBool:TRUE]
+      };
+    
+    [param setObject:resigsterDevice forKey:@"registerDevice"];
+    
+    [self.httpClient POSTWithUrlString:@"/auth" parameters:param success:^(id results) {
+        
+        NSLog(@"Login Result : %@", results);
+        
+        [self reqUploadImage];
+
+    } failure:^(NSError *error) {
+        NSLog(@"Login Error : %@", error.description);
+    }];
+}
+
+- (void)reqUploadImage
+{
+    NSData *imageData = UIImagePNGRepresentation(self.image);
+    
+    [self.httpClient UPLOADWithUrlString:@"/aws/image" data:imageData success:^(id responseObject) {
+        
+        NSLog(@"success : %@", responseObject);
+        
+    } failure:^(NSError *error) {
+        
+        NSLog(@"error : %@", error.description) ;
+        
+    }];
 }
 
 #pragma mark - GIDSignInUIDelegate

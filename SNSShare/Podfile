@@ -13,6 +13,7 @@ target 'SNSShare' do
     pod 'TwitterKit'
     pod 'Crashlytics'
     pod 'TwitterCore'
+    pod 'AFNetworking'
 
   # Pods for SNSShare
 

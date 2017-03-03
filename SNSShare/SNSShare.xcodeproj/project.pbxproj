@@ -27,6 +27,7 @@
 		6DB922F01E4C5A14003F9481 /* google_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922ED1E4C5A14003F9481 /* google_icon.png */; };
 		6DB922F11E4C5A14003F9481 /* twitter_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 6DB922EE1E4C5A14003F9481 /* twitter_icon.png */; };
 		6DB922F41E4C5DEF003F9481 /* SNSClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DB922F31E4C5DEF003F9481 /* SNSClass.m */; };
+		6DCC53A61E68108C00571E3C /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 6DCC53A51E68108C00571E3C /* HTTPClient.m */; };
 		B20D2A8DC180731FD857DA75 /* Pods_SNSShareTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5651BD13086E12CDB3030E22 /* Pods_SNSShareTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -78,6 +79,8 @@
 		6DB922EE1E4C5A14003F9481 /* twitter_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = twitter_icon.png; sourceTree = "<group>"; };
 		6DB922F21E4C5DEF003F9481 /* SNSClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SNSClass.h; sourceTree = "<group>"; };
 		6DB922F31E4C5DEF003F9481 /* SNSClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SNSClass.m; sourceTree = "<group>"; };
+		6DCC53A41E68108C00571E3C /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = "<group>"; };
+		6DCC53A51E68108C00571E3C /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = "<group>"; };
 		FA6CBD58843F5F909FBED1FB /* Pods-SNSShare.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SNSShare.release.xcconfig"; path = "Pods/Target Support Files/Pods-SNSShare/Pods-SNSShare.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -144,6 +147,8 @@
 		6D5397741E4B14A400D41B51 /* SNSShare */ = {
 			isa = PBXGroup;
 			children = (
+				6DCC53A41E68108C00571E3C /* HTTPClient.h */,
+				6DCC53A51E68108C00571E3C /* HTTPClient.m */,
 				6D5397781E4B14A400D41B51 /* AppDelegate.h */,
 				6D5397791E4B14A400D41B51 /* AppDelegate.m */,
 				6D53977B1E4B14A400D41B51 /* ViewController.h */,
@@ -416,6 +421,7 @@
 			files = (
 				6D5397A11E4B1CA800D41B51 /* DetailViewController.m in Sources */,
 				6D53977D1E4B14A400D41B51 /* ViewController.m in Sources */,
+				6DCC53A61E68108C00571E3C /* HTTPClient.m in Sources */,
 				6DB922E31E4C34C2003F9481 /* FacebookActivity.m in Sources */,
 				6D53979D1E4B16E200D41B51 /* ImageCell.m in Sources */,
 				6D53977A1E4B14A400D41B51 /* AppDelegate.m in Sources */,
