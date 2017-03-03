@@ -123,12 +123,16 @@
     
     UIAlertAction *ok = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         
-        [self.navigationController popViewControllerAnimated:YES];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
     }];
     
     [controller addAction:ok];
     
-    [self presentViewController:controller animated:YES completion:nil];
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self presentViewController:controller animated:YES completion:nil];
+    });
 }
 
 #pragma mark - GIDSignInUIDelegate
